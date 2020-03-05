@@ -7,67 +7,77 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Kitbox.GUI;
 using Kitbox.Components;
+using DBMethods;
+using MySql.Data.MySqlClient;
 
 namespace GUI
 {
     public partial class Customer : Form
     {
 
-        private List<Cupboard> cupboardList = new List<Cupboard>(); 
-        public Customer()
+        private MySqlConnection DataBase;
+        private Authentication Authentification;
+        private TreeviewManager MainTreeview;
+        private readonly string Username;
+        private readonly string Password;
+        private Kitbox.Order.Order OurOrder;
+        public Customer(MySqlConnection _database, Authentication _authentification,string _username,string _password)
         {
             InitializeComponent();
+            OurOrder = new Kitbox.Order.Order();
+            MainTreeview = new TreeviewManager(pepTreeView1, splitContainer1.Panel2.Controls,OurOrder);
+            DataBase = _database;
+            Authentification = _authentification;
+            Username = _username;
+            Password = _password;
+            Kitbox.Database.Reader.InitializeComponents(DataBase);
+             toolStripStatusLabel1.Text = "Welcome " + Username;
+            
         }
+
+        private void RemoveCupboardOrder(int uid)
+        {
+            OurOrder.RemoveAt(uid);
+        }
+
+        private void BeforeFormClosing(object sender, FormClosingEventArgs e)
+        {
+            Authentification.Visible = true;
+        }
+
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
         {
 
         }
-        private int UidTreeview = 0;
+       
+     
         private void button1_Click(object sender, EventArgs e)
         {
-            UidTreeview += 1;
-
-            AddCupboard(UidTreeview, UidTreeview);
-            
-
+          
+            MainTreeview.AddCupboard(OurOrder);    
         }
 
-        private void AddCupboard(int uid ,int index, string Tag = "default")
-        {
-            pepTreeView1.Nodes.Add(uid.ToString(), "Cupboard - N" + index);
-            pepTreeView1.Nodes[index -1].Tag = Tag;
-            pepTreeView1.Nodes[index -1].ImageIndex = 1;
-
-            Cupboard newCupboard = new Cupboard(uid);
-            cupboardList.Add(newCupboard);
-
-            toolStripStatusLabel1.Text = string.Format("Cupboard - N{0} added!", uid);
-            toolStripStatusLabel1.ForeColor = System.Drawing.Color.Green;
-        }
-
-        private void RemoveCupboard(int uid)
-        {
-    
-
-        }
-        private void AddBox(int uid, int indexCupboard, int index, string tag = "Order in progress")
-        {
-            pepTreeView1.Nodes[indexCupboard -1].Nodes.Add(uid.ToString(), "Box - N" + index);
-            pepTreeView1.Nodes[indexCupboard -1].Nodes[index -1].Tag = tag ;
-            pepTreeView1.Nodes[indexCupboard -1].Nodes[index -1].ImageIndex = 0;
-        }
-
-        private void RemoveBox(int Uid)
-        {
-
-        }
+       
 
         private void pepTreeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             int uidClicked = int.Parse(e.Node.Name);
+            MainTreeview.BringToFrontView(uidClicked);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About obj = new About();
+            obj.Show(this);
+       
         }
     }
 }

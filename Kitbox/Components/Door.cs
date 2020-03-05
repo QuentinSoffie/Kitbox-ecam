@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Kitbox.Components
 {
-    class Door : Specs
+    public class Door : Specs
     {
-        public string Color { get; set; }
+        public readonly string Color; 
         public Door(string color, int height, int width, int depth) : base(height, width, depth)
         {
             this.Color = color;

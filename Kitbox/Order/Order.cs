@@ -4,42 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Kitbox.Components;
+using Kitbox.GUI;
+using System.Windows.Forms;
 namespace Kitbox.Order
 {
-    class Order
+   public class Order
     {
-        private List<Cupboard> cupboardList;
+        private List<Cupboard> CupboardList;
+        
+
         public Order()
         {
+            CupboardList = new List<Cupboard>();
+          
+           
         }
-        public void Add(Cupboard newCupboard)
+        public void Add(int uid ,TreeviewManager ViewManager)
         {
-            cupboardList.Add(newCupboard);
+            Cupboard cupboard = new Cupboard(uid);
+            ViewManager.AddViewCupboard(uid, cupboard);
+            CupboardList.Add(cupboard);
         }
-        public void Remove(Cupboard oldCupboard)
+
+       
+       
+        public void RemoveAt(int uid)
         {
-            if (cupboardList.Contains(oldCupboard))
+            foreach (Cupboard cupboard in CupboardList)
             {
-                cupboardList.Remove(oldCupboard);
-            }
-        }
-        public Cupboard GetCupboard(int index)
-        {
-            if (index > cupboardList.Count() - 1)
-            {
-                return null;
-            }
-            else
-            {
-                return cupboardList[index];
-            }
-            
-        }
-        public void RemoveAt(int index)
-        {
-            if (index < cupboardList.Count() - 1)
-            {
-                cupboardList.RemoveAt(index);
+                if(cupboard.Uid == uid)
+                {
+                    CupboardList.Remove(cupboard);
+                    break;
+                }
             }
         }
      

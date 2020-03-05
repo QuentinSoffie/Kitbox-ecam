@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Kitbox.Components
 {
-    class Box
+    public class Box
     {
         public int Uid { get; set; }
-        public Door Door { get; set; }
-        public Slider Cleat { get; set; }
-        public Panel Panel { get; set; }
-        public Traverses Traverses { get; set; }
+        private readonly Door Door;
+        private readonly Slider Cleat;
+        private readonly Panel Panel;
+        private readonly Traverses Traverses;
+
 
         public Box(int uid, Door door, Slider cleat, Panel panel, Traverses traverses)
         {

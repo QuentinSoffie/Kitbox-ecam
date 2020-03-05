@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{081F2CA2-F8F4-49D8-8F33-5943BCAFF943}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Kitbox</RootNamespace>
     <AssemblyName>Kitbox</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -60,6 +60,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\Components\Panels.cs" />
+    <Compile Include="Database\Components\Doors.cs" />
+    <Compile Include="Database\Reader.cs" />
+    <Compile Include="GUI\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TreeviewManager.cs" />
+    <Compile Include="GUI\CustomPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CustomPopup.Designer.cs">
+      <DependentUpon>CustomPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Preview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Preview.Designer.cs">
+      <DependentUpon>Preview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\ViewCupboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Views\ViewCupboard.Designer.cs">
+      <DependentUpon>ViewCupboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Views\ViewBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Views\ViewBox.designer.cs">
+      <DependentUpon>ViewBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order\Box.cs" />
     <Compile Include="Order\ChoosePart.cs" />
     <Compile Include="Order\Order.cs" />
@@ -76,11 +110,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Authentification.cs">
+    <Compile Include="GUI\Authentication.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Authentification.designer.cs">
-      <DependentUpon>Authentification.cs</DependentUpon>
+      <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Customer.cs">
       <SubType>Form</SubType>
@@ -94,10 +128,25 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Authentification.resx">
-      <DependentUpon>Authentification.cs</DependentUpon>
+      <DependentUpon>Authentication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Customer.resx">
       <DependentUpon>Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CustomPopup.resx">
+      <DependentUpon>CustomPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Preview.resx">
+      <DependentUpon>Preview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Views\ViewCupboard.resx">
+      <DependentUpon>ViewCupboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Views\ViewBox.resx">
+      <DependentUpon>ViewBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

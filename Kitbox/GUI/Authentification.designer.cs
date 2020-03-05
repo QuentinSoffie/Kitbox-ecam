@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class Authentification
+    partial class Authentication
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Authentification));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Authentication));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pepTextbox1 = new KitboxEcamGUI.PepTextbox();
@@ -59,6 +59,7 @@
             // 
             // pepTextbox1
             // 
+            this.pepTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.pepTextbox1.EnabledCalc = true;
             this.pepTextbox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.pepTextbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -75,6 +76,7 @@
             // 
             // pepTextbox2
             // 
+            this.pepTextbox2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.pepTextbox2.EnabledCalc = true;
             this.pepTextbox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.pepTextbox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -117,7 +119,8 @@
             this.MaximumSize = new System.Drawing.Size(450, 320);
             this.MinimumSize = new System.Drawing.Size(450, 320);
             this.Name = "Authentification";
-            this.Text = "Authentification";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Authentication";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

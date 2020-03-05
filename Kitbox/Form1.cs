@@ -83,12 +83,12 @@ namespace Kitbox
 
             try
             {
-                SetComboboxValues("Piece", "Ref", "Panneau HB", "Couleur", pepCombobox1);
-                SetComboboxValues("Piece", "Ref", "Porte", "Couleur", pepCombobox2);  
+                //SetComboboxValues("Piece", "Ref", "Panneau HB", "Couleur", pepCombobox1);
+                //SetComboboxValues("Piece", "Ref", "Porte", "Couleur", pepCombobox2);  
 
-                SetComboboxValues("Piece", "Ref", "Panneau GD", "hauteur", pepCombobox3);
-                SetComboboxValues("Piece", "Ref", "Panneau GD", "profondeur", pepCombobox4);
-                SetComboboxValues("Piece", "Ref", "Panneau Ar", "largeur", pepCombobox5);
+                //SetComboboxValues("Piece", "Ref", "Panneau GD", "hauteur", pepCombobox3);
+                //SetComboboxValues("Piece", "Ref", "Panneau GD", "profondeur", pepCombobox4);
+                //SetComboboxValues("Piece", "Ref", "Panneau Ar", "largeur", pepCombobox5);
             }
 
             catch (Exception exception)
@@ -193,7 +193,7 @@ namespace Kitbox
             {
                 listPanel[2].BringToFront();
 
-                SetComboboxValues("Piece", "Ref", "Cornieres", "Couleur", pepCombobox6);
+                //SetComboboxValues("Piece", "Ref", "Cornieres", "Couleur", pepCombobox6);
 
                 foreach(TreeNode boxe in treeView1.Nodes)
                 {
@@ -219,9 +219,9 @@ namespace Kitbox
             
         }
 
-        public void SetComboboxValues(string table, string param, string value, string cond, ComboBox pepCombobox)
+        public void SetComboboxValues(string table, string param, string value, string cond, ComboBox pepCombobox, string username,string password)
         {
-            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlConnection conn = DBUtils.GetDBConnection(username,password);
             conn.Open();
 
             Console.WriteLine("Getting Connection ...");

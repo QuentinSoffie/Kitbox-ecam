@@ -10,6 +10,7 @@ namespace Kitbox
 {
     static class Program
     {
+       
         /// <summary>
         /// Point d'entrée principal de l'application.
         /// </summary>
@@ -18,7 +19,7 @@ namespace Kitbox
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Authentification());
+            Application.Run(new Authentication());
         }
     }
 }
